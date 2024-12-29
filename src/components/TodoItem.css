@@ -1,0 +1,23 @@
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.btn-remove {
+    background-color: #ff4b4b;
+    color: white;
+    border: none;
+    padding: 0.3rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #ccc;
+}
