@@ -24,7 +24,8 @@ const TodoItem = ({ id, title, setCompleted, removeTodo }) => {
 TodoItem.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
-    setCompleted: PropTypes.func
+    setCompleted: PropTypes.func,
+    removeTodo: PropTypes.func
 }
 
 export default TodoItem
