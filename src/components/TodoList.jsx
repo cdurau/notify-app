@@ -9,9 +9,9 @@ function TodoList() {
 
     const addTodo = e => {
         if (e.type === "click" || (e.type === "keydown" && e.key === "Enter")) {
-            const todoTitle = e.target.parentElement.querySelector("input").value
+            const todoTitle = e.target.parentElement.querySelector("input").value.trim()
 
-            if (todoTitle.trim() !== "") {
+            if (todoTitle !== "" && !items.some(item => item.title.toLowerCase() === todoTitle.toLowerCase())) {
                 const todo = {
                     id: id,
                     title: todoTitle,
