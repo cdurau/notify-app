@@ -36,7 +36,19 @@ function TodoList() {
             return item
         })
 
-        setItems(newItems)
+        const sortedNewItems = newItems.sort((a, b) => {
+            if (a.completed && !b.completed) {
+                return 1
+            } else if (!a.completed && b.completed) {
+                return -1
+            } else if (a.completed && b.completed) {
+                return a.title.localeCompare(b.title, undefined, { numeric: true })
+            } else {
+                return 0
+            }
+        })
+
+        setItems(sortedNewItems)
     }
 
     const removeTodo = id => {
@@ -45,11 +57,26 @@ function TodoList() {
         setItems(newItems)
     }
 
+    const sortTodoList = () => {
+        const newItems = items.sort((a, b) => {
+            if (a.completed && !b.completed) {
+                return 1
+            } else if (!a.completed && b.completed) {
+                return -1
+            } else {
+                return a.title.localeCompare(b.title, undefined, { numeric: true })
+            }
+        })
+
+        setItems([...newItems])
+    }
+
     return (
         <>
             <div style={newTodoStyle}>
                 <input type="text" placeholder="Neues Todo ..." onKeyDown={addTodo} />
                 <button onClick={addTodo}>Add</button>
+                <button onClick={sortTodoList}>Sort</button>
             </div>
             <ul>
                 {items.map(item => (
